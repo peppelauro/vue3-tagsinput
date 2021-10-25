@@ -1,4 +1,6 @@
-# Voerro Vue Tags Input v2
+# WIP: Voerro Vue Tags Input v2 porting to vuejs 3
+
+I've started the porting of the good Voerro Vue Tags Input to vuejs 3.
 
 [![npm (scoped)](https://img.shields.io/npm/v/@voerro/vue-tagsinput.svg?style=flat-square)](https://www.npmjs.com/package/@voerro/vue-tagsinput)
 [![npm](https://img.shields.io/npm/dm/@voerro/vue-tagsinput.svg?style=flat-square)](https://www.npmjs.com/package/@voerro/vue-tagsinput)

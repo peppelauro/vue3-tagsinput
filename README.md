@@ -13,30 +13,6 @@ Vue.component('tags-input', VoerroTagsInput3);
 
 Include the `dist/style.css` file on your page to apply the styling. You can use CDN, `require()` it inside your JS code, or `@include` it inside your (S)CSS assets. Read the `Styling` section to learn how to customize the appearance.
 
-## Installation via CDN
-
-If you're not using NPM, you can include the required files into your page manually from a CDN. Don't forget to include Vue as well. For example:
-
-```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@voerro/vue-tagsinput@2.7.1/dist/voerro-vue-tagsinput.js"></script>
-
-<script>
-    new Vue({
-        el: '#app',
-        components: { "tags-input": VoerroTagsInput },
-    });
-</script>
-```
-
-Include the CSS file on your page to apply the styling. Read the `Styling` section to learn how to customize the appearance.
-
-```
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@voerro/vue-tagsinput@2.7.1/dist/style.css">
-```
-
-**IMPORTANT:** Always grab the latest versions of the package from [JSDELIVR](https://www.jsdelivr.com/package/npm/@voerro/vue-tagsinput?path=dist), the ones provided in the examples above might be outdated. Same goes for Vue.js.
-
 ## Usage
 
 ```html

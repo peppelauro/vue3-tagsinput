@@ -5,7 +5,7 @@
             'active': isActive,
             'disabled': disabled,
         }">
-            <span v-for="(tag, index) in tags"
+            <span v-show="!inputFieldMode" v-for="(tag, index) in tags"
                 :key="index"
                 class="tags-input-badge tags-input-badge-pill tags-input-badge-selected-default"
                 :class="{ 'disabled': disabled }"
@@ -36,6 +36,7 @@
                 @compositionend="composing=false"
                 @keydown.enter.prevent="tagFromInput(false)"
                 @keydown.8="removeLastTag"
+                @keyup.delete="removeLastTag"
                 @keydown.down="nextSearchResult"
                 @keydown.up="prevSearchResult"
                 @keydown="onKeyDown"
@@ -235,6 +236,10 @@ export default {
     beforeRemovingTag: {
       type: Function,
       default: () => true
+    },
+    inputFieldMode: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -323,7 +328,7 @@ export default {
       }
     }
   },
-  emits: ['update:modelValue', 'initialized', 'focus', 'click', 'blur', 'tags-updated', 'tag-added'],
+  emits: ['update:modelValue', 'initialized', 'focus', 'click', 'blur', 'change', 'tags-updated', 'tag-added', 'keyup', 'keydown', 'tag-removed'],
   methods: {
     /**
          * Remove reserved regex characters from a string so that they don't
@@ -432,6 +437,10 @@ export default {
           this.$emit('tag-added', tag)
           this.$emit('tags-updated')
         })
+
+        if (this.inputFieldMode) {
+          this.$refs.taginput.value = tag.name
+        }
       }
     },
     /**
@@ -440,6 +449,7 @@ export default {
          * @returns void
          */
     removeLastTag () {
+      console.log('REMOVELASTTAG:', this.input, this.tags)
       if (!this.input.length && this.deleteOnBackspace && this.tags.length) {
         this.removeTag(this.tags.length - 1)
       }
@@ -612,6 +622,10 @@ export default {
          */
     tagsFromValue () {
       if (this.modelValue && this.modelValue.length) {
+        if (this.inputFieldMode) {
+          // this.input = this.modelValue[0].name
+          this.$refs.taginput.value = this.modelValue[0].name
+        }
         if (!Array.isArray(this.modelValue)) {
           console.error('Voerro Tags Input: the v-model value must be an array!')
           return

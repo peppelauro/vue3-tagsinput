@@ -2,34 +2,14 @@
 
 I've started the porting of the good Voerro Vue Tags Input to vuejs 3.
 
-[![npm (scoped)](https://img.shields.io/npm/v/@voerro/vue-tagsinput.svg?style=flat-square)](https://www.npmjs.com/package/@voerro/vue-tagsinput)
-[![npm](https://img.shields.io/npm/dm/@voerro/vue-tagsinput.svg?style=flat-square)](https://www.npmjs.com/package/@voerro/vue-tagsinput)
-[![MIT](https://img.shields.io/github/license/AlexMordred/vue-tagsinput.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-
-A simple tags input with typeahead built with Vue.js 3.
-
-![](demo.gif)
-![](demo2.gif)
-
-[**Live Demo**](https://voerro.github.io/vue-tagsinput/)
-
-## Installation via NPM
-
-```
-npm i @voerro/vue-tagsinput --save-dev
-```
-or
-```
-npm i @voerro/vue-tagsinput --save
-```
-
-Then register the component with Vue:
+Register the component with Vue:
 
 ```javascript
-import VoerroTagsInput from '@voerro/vue-tagsinput';
+import VoerroTagsInput3 from '<YOUR_COMPONENT_PATH>/VoerroTagsInput3.vue'
 
-Vue.component('tags-input', VoerroTagsInput);
+Vue.component('tags-input', VoerroTagsInput3);
 ```
+~~
 
 Include the `dist/style.css` file on your page to apply the styling. You can use CDN, `require()` it inside your JS code, or `@include` it inside your (S)CSS assets. Read the `Styling` section to learn how to customize the appearance.
 
@@ -193,7 +173,7 @@ add-tags-on-blur | Boolean | false | Add new tags when on the input is blur. The
 sort-search-results | Boolean | true | Whether the search results should be sorted.
 before-adding-tag | Function | `tag => true` | Callback to perform additional checks and actions before a tag is added. Return `true` to allow a tag to be added or `false` to forbid the action.
 before-removing-tag | Function | `tag => true` | Callback to perform additional checks and actions before a tag is removed. Return `true` to allow a tag to be added or `false` to forbid the action.
-
+input-field-mode | Boolean | false | Hide the labels and show only the input text mode (enable a "simple" autocomplete mode)
 #### Events
 
 Event | Description
